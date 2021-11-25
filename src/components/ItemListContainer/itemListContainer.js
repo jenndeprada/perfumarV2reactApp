@@ -1,8 +1,7 @@
 
-
-function ItemListContainer() {
+function ItemListContainer({name}) {
     return (
-        <h2>lista de cosas</h2>
+        <h2> Hola! {name}</h2>
     )
 }
 
