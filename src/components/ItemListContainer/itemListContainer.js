@@ -26,7 +26,11 @@ function ItemListContainer() {
         <div>
             {
                 loading
-                ? <h2>Cargando...</h2>
+                ?   <div className="d-flex justify-content-center p-5">
+                        <div className="spinner-border" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
                 : <ItemList items={items}/>
             }
             
@@ -35,6 +39,7 @@ function ItemListContainer() {
     )
     
 }
+
 
 
 

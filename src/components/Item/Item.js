@@ -2,21 +2,25 @@ import React from "react";
 import '../../../node_modules/bootstrap/js/src/collapse';
 
 export const Item = ({item}) => {
+    let idString = String(item.id);
+    let target = "#collapse"+ idString;
+    let acordOpt = "#acordion" + idString;
+    let acor = "acordion" + idString;
+    let heading = "heading" + idString
     return (
         <div className="pt-3 col-xs-12 col-md-6 col-lg-4 d-inline-flex justify-content-center">
             <div className="px-2">
               <div className="card">
-                <img src={`${item.imagen}`} className="card-img-top" alt={"perfume "+`${item.nombre}`}/>
+                <img src={`${item.imagen}`} className="card-img-top" alt={"perfume " + idString}/>
                 <div className="card-body">
-                  
-                  <div className="accordion pb-3" id={"acordion"+`${item.id}`}>
+                  <div className="accordion pb-3" id={acor}>
                     <div className="accordion-item">
-                      <h2 className="accordion-header" id={"heading"+`${item.id}`}>
-                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target= {"#"+`${item.id}`} aria-expanded="true" aria-controls={`${item.id}`}>
+                      <h2 className="accordion-header" id={heading}>
+                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target= {target} aria-expanded="true" aria-controls={"collapse"+idString}>
                           {item.nombre}
                         </button>
                       </h2>
-                      <div id={`${item.id}`} className="accordion-collapse collapse" aria-labelledby={"heading"+`${item.id}`} data-bs-parent={"#" + "acordion" + `${item.id}`}>
+                      <div id={"collapse"+idString} className="accordion-collapse collapse" aria-labelledby={heading} data-bs-parent={acordOpt}>
                         <div className="accordion-body">
                           <ul className="list-group list-group-flush">
                             <li className="list-group-item">Marca: {item.marca}</li>
@@ -28,7 +32,11 @@ export const Item = ({item}) => {
                     </div>
                   </div>
                   <p className="card-text">{item.descripcion}</p>
-                  <a href="https://www.google.com/?hl=es" className="btn btn-dark">Ver mas</a>
+                  <div className="d-flex justify-content-evenly"> 
+                        <a href="https://www.google.com/?hl=es" className="btn btn-dark">Ver mas</a>
+                        <a href="https://www.google.com/?hl=es" className="btn btn-dark">Agregar</a>
+                  </div>
+               
                 </div>
               </div>
             </div>
